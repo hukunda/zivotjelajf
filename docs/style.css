@@ -621,32 +621,69 @@ img, object, svg {
     align-items: center;
     gap: var(--space-lg);
     padding: var(--space-lg);
-    background: var(--color-surface-light);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all var(--transition-normal);
     position: relative;
     text-decoration: none;
     color: inherit;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 51, 102, 0.03) 0%, rgba(255, 170, 0, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .event-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--color-primary);
+    border-color: rgba(255, 51, 102, 0.3);
+}
+
+.event-card:hover::before {
+    opacity: 1;
 }
 
 .event-date {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
-    padding: var(--space-sm) var(--space-md);
-    border-radius: var(--radius-md);
-    font-weight: bold;
-    font-size: 0.9rem;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1.1rem;
     text-transform: uppercase;
-    min-width: 60px;
+    min-width: 80px;
     text-align: center;
     flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.event-date::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.event-card:hover .event-date::before {
+    left: 100%;
 }
 
 .event-info {
@@ -717,15 +754,36 @@ img, object, svg {
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
-    padding: var(--space-xs) var(--space-sm);
-    border: 1px solid var(--color-primary);
-    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
     transition: all var(--transition-fast);
+    background: rgba(255, 51, 102, 0.05);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(255, 51, 102, 0.1);
+}
+
+.band-detail-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 51, 102, 0.1), transparent);
+    transition: left 0.4s ease;
 }
 
 .band-detail-link:hover {
     background: var(--color-primary);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 51, 102, 0.3);
+}
+
+.band-detail-link:hover::before {
+    left: 100%;
 }
 
 /* Bands Grid Styles */
@@ -1376,6 +1434,386 @@ img, object, svg {
 }
 
 /* ==========================================
+   PAGE LAYOUTS & CONTENT SECTIONS
+========================================== */
+
+/* Page Header Styling */
+.page-header {
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%);
+    padding: var(--space-2xl) 0 var(--space-xl);
+    margin-top: var(--nav-height);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 51, 102, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 170, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+    font-weight: 400;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+}
+
+.breadcrumb a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-text);
+}
+
+/* Content Sections */
+.bands-content,
+.vinyl-content,
+.concerts-content,
+.about-content {
+    padding: var(--space-2xl) 0;
+    background: var(--color-bg);
+}
+
+/* Detailed Band Cards */
+.bands-grid .band-card.detailed {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    min-height: 400px;
+}
+
+.bands-grid .band-card.detailed:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 51, 102, 0.2);
+}
+
+.bands-grid .band-card.detailed .band-image {
+    height: 200px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.bands-grid .band-card.detailed .band-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bands-grid .band-card.detailed .band-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+}
+
+.bands-grid .band-card.detailed .band-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+    flex: 1;
+}
+
+.band-actions {
+    margin-top: auto;
+}
+
+/* Vinyl Grid & Details */
+.vinyl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.vinyl-card.detailed {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.vinyl-card.detailed:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.vinyl-card.detailed .vinyl-image {
+    height: 250px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-md);
+}
+
+.vinyl-card.detailed .vinyl-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+}
+
+.vinyl-card.detailed .vinyl-artist {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.vinyl-card.detailed .vinyl-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.vinyl-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: var(--space-md);
+}
+
+/* About Page Specific Styles */
+.about-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+}
+
+.about-main {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+}
+
+.about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.sidebar-section {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.sidebar-section h3 {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.contact-item strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.contact-item a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--color-text);
+}
+
+.info-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+}
+
+.info-tile {
+    background: var(--color-surface-light);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+
+.info-tile:hover {
+    background: var(--color-primary);
+    color: var(--color-text);
+    transform: translateY(-2px);
+}
+
+/* News/Posts Grid */
+.news-grid {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.news-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--color-primary);
+}
+
+.news-card h3 {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+}
+
+.news-meta {
+    color: var(--color-text-dim);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-md);
+}
+
+.news-content {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* Concerts Table */
+.concerts-table {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-md);
+    overflow-x: auto;
+}
+
+.concerts-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.concerts-table th,
+.concerts-table td {
+    padding: var(--space-sm) var(--space-md);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.concerts-table th {
+    color: var(--color-text);
+    font-weight: 700;
+    background: var(--color-surface-light);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.concerts-table td {
+    color: var(--color-text-muted);
+}
+
+.concerts-table tr:hover {
+    background: var(--color-surface-light);
+}
+
+.table-date {
+    color: var(--color-primary) !important;
+    font-weight: 600;
+    min-width: 80px;
+}
+
+.table-band {
+    color: var(--color-text) !important;
+    font-weight: 600;
+}
+
+.table-price {
+    color: var(--color-secondary) !important;
+    font-weight: 600;
+}
+
+.table-icons {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.table-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    color: var(--color-text);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.table-icons a:hover {
+    background: var(--color-text);
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+/* ==========================================
    RESPONSIVE DESIGN
 ========================================== */
 
@@ -1462,6 +1900,82 @@ img, object, svg {
     
     .player-volume {
         min-width: auto;
+    }
+    /* Page Layout Mobile Styles */
+    .page-header {
+        padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    /* About Layout Mobile */
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Band Cards Mobile */
+    .bands-grid .band-card.detailed {
+        padding: var(--space-md);
+        min-height: auto;
+    }
+
+    .bands-grid .band-card.detailed .band-image {
+        height: 150px;
+    }
+
+    /* Vinyl Cards Mobile */
+    .vinyl-card.detailed .vinyl-image {
+        height: 200px;
+    }
+
+    /* Event Cards Mobile */
+    .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+        padding: var(--space-md);
+    }
+
+    .event-date {
+        align-self: flex-start;
+        min-width: 70px;
+        font-size: 1rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .band-detail-link {
+        margin-top: var(--space-sm);
+        align-self: flex-start;
+    }
+
+    /* Info Tiles Mobile */
+    .info-tiles {
+        grid-template-columns: 1fr;
+    }
+
+    /* Concerts Table Mobile */
+    .concerts-table {
+        padding: var(--space-md);
+    }
+
+    .concerts-table th,
+    .concerts-table td {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.9rem;
+    }
+
+    .table-icons {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .table-icons a {
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
     }
 }
 
