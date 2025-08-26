@@ -416,97 +416,41 @@ img, object, svg {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--space-lg);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-2xl);
+    display: flex;
     align-items: center;
+    min-height: 100vh;
+    padding-top: var(--nav-height);
 }
 
-.hero-text {
+.hero-content .container {
+    text-align: center;
     animation: fadeInUp 1s ease-out 0.5s both;
 }
 
 .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
     margin-bottom: var(--space-lg);
-    position: relative;
-    overflow: hidden;
+    color: var(--color-text);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero-title::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 300% 300%;
-    animation: gradientShift 3s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-.hero-subtitle {
+.hero-lead {
     font-size: 1.2rem;
     line-height: 1.7;
     color: var(--color-text-muted);
     margin-bottom: var(--space-xl);
     max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero-actions {
-    display: flex;
-    gap: var(--space-lg);
-    flex-wrap: wrap;
-}
-
-.hero-stats {
-    display: grid;
-    gap: var(--space-lg);
-    animation: fadeInUp 1s ease-out 0.8s both;
-}
-
-.stat-item {
-    text-align: center;
-    padding: var(--space-lg);
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all var(--transition-normal);
-}
-
-.stat-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-glow);
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--color-primary);
-    font-family: var(--font-mono);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: var(--space-sm);
+.hero-cta {
+    margin-bottom: var(--space-xl);
 }
 
 .scroll-indicator {
@@ -620,7 +564,376 @@ img, object, svg {
 }
 
 /* ==========================================
-   PREVIEW CARDS
+   HOMEPAGE SECTIONS
+========================================== */
+
+/* Common section styles */
+.home-concerts,
+.home-bands,
+.home-vinyls {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
+}
+
+.home-concerts:nth-child(odd),
+.home-bands:nth-child(odd),
+.home-vinyls:nth-child(odd) {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--color-text);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-intro {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+
+/* Event List Styles */
+.event-list {
+    list-style: none;
+    display: grid;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.event-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: var(--color-surface-light);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-normal);
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.event-date {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    min-width: 60px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.event-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.event-band {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+}
+
+.event-meta {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.event-icons {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.event-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-muted);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: all var(--transition-fast);
+}
+
+.event-icons a:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.band-detail-link {
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.band-detail-link:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Bands Grid Styles */
+.bands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.band-card {
+    background: var(--color-surface-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.band-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.band-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    opacity: 0.8;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.band-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: var(--space-md) var(--space-lg) var(--space-sm);
+}
+
+.band-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0 var(--space-lg) var(--space-lg);
+}
+
+.detail-link {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Vinyl Styles */
+.vinyl-feature {
+    margin-bottom: var(--space-xl);
+}
+
+.vinyl-feature a {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: center;
+    background: var(--color-surface-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-normal);
+    text-decoration: none;
+    color: inherit;
+}
+
+.vinyl-feature a:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.vinyl-image {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+}
+
+.vinyl-disc {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #333 20%, #111 21%, #333 25%, #111 26%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    animation: spinSlow 20s linear infinite;
+}
+
+.vinyl-outer-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.vinyl-label {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.vinyl-center-hole {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+}
+
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.vinyl-info {
+    flex: 1;
+}
+
+.vinyl-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+}
+
+.vinyl-artist {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+.vinyl-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.vinyl-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.vinyl-card {
+    background: var(--color-surface-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: var(--space-lg);
+}
+
+.vinyl-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+.vinyl-card .vinyl-image {
+    height: 200px;
+    margin-bottom: var(--space-md);
+}
+
+.vinyl-card .vinyl-disc {
+    width: 150px;
+    height: 150px;
+}
+
+.vinyl-card .vinyl-label {
+    width: 60px;
+    height: 60px;
+    font-size: 0.6rem;
+}
+
+.vinyl-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 var(--space-md) var(--space-xs);
+}
+
+.vinyl-card .vinyl-artist {
+    margin: 0 var(--space-md);
+    font-size: 0.9rem;
+}
+
+.cta-row {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   PREVIEW CARDS (Legacy - can be removed)
 ========================================== */
 
 .preview-grid {
