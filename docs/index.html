@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ŽIVOT JE LAJF - Underground Music Management</title>
-    <meta name="description" content="U nás u 'Život je lajf' věříme, že život je příliš krátký na špatnou hudbu. Hudební management, produkce vinylů, organizace koncertů.">
+    <meta name="description" content="Hudební management, organizace koncertů a produkce vinylů pro underground scénu. Život je příliš krátký na špatnou hudbu.">
     <meta name="keywords" content="underground music, vinyl, concerts, Prague, czech music, Život je lajf">
     
     <!-- Open Graph -->
@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
@@ -39,610 +39,200 @@
     }
     </script>
 </head>
-<body>
+<body class="loading">
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-content">
-            <div class="loading-logo">🎸</div>
+            <div class="loading-logo">
+                <object data="assets/logo.svg" type="image/svg+xml" class="loading-svg">🎸</object>
+            </div>
             <div class="loading-text">ŽIVOT JE LAJF</div>
             <div class="loading-spinner"></div>
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="#home" class="site-title">ŽIVOT JE LAJF</a>
-                </div>
-                
-                <nav class="main-nav" id="main-nav">
-                    <ul>
-                        <li><a href="#o-zivote" class="nav-link">O ŽIVOTĚ</a></li>
-                        <li><a href="#kapely" class="nav-link">O KAPELÁCH</a></li>
-                        <li><a href="#vinyly" class="nav-link">O VINYLECH</a></li>
-                        <li><a href="#koncerty" class="nav-link">KONCERTY</a></li>
-                    </ul>
-                </nav>
-                
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <object data="assets/logo.svg" type="image/svg+xml" class="logo-svg">ŽIVOT JE LAJF</object>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="o-zivote.html" class="nav-item" data-text="O ŽIVOTĚ">
+                    <span class="nav-text">O ŽIVOTĚ</span>
+                </a>
+                <a href="kapely.html" class="nav-item" data-text="KAPELY">
+                    <span class="nav-text">KAPELY</span>
+                </a>
+                <a href="vinyly.html" class="nav-item" data-text="VINYLY">
+                    <span class="nav-text">VINYLY</span>
+                </a>
+                <a href="koncerty.html" class="nav-item" data-text="KONCERTY">
+                    <span class="nav-text">KONCERTY</span>
+                </a>
+            </div>
+            
+            <div class="nav-burger" id="navBurger">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <main class="site-main">
-        <!-- Home Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-background"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        U NÁS U 'ŽIVOT JE LAJF' VĚŘÍME, ŽE ŽIVOT JE PŘÍLIŠ KRÁTKÝ NA ŠPATNOU HUDBU.
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-background">
+                <!-- Hero Image: Concert/underground venue atmosphere -->
+                <div class="hero-image">
+                    <div class="hero-overlay"></div>
+                    <!-- Placeholder for hero image - replace with actual concert photo -->
+                    <div class="hero-placeholder">
+                        <div class="stage-lights"></div>
+                        <div class="crowd-silhouette"></div>
+                        <div class="smoke-effect"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title" data-text="ŽIVOT JE PŘÍLIŠ KRÁTKÝ NA ŠPATNOU HUDBU">
+                        ŽIVOT JE PŘÍLIŠ KRÁTKÝ NA ŠPATNOU HUDBU
                     </h1>
                     <p class="hero-subtitle">
-                        Tak neváhejte a kontaktujte nás ještě dnes. S námi bude vaše akce nezapomenutelná, protože… no, život je lajf!
+                        Hudební management, organizace koncertů a produkce vinylů pro underground scénu. 
+                        S námi bude vaše akce nezapomenutelná.
                     </p>
-                    <div class="hero-cta">
-                        <a href="mailto:cau@zivotjelajf.com" class="btn btn-primary">Ozvi se nám</a>
+                    <div class="hero-actions">
+                        <a href="mailto:cau@zivotjelajf.com" class="btn btn-primary pulse">
+                            <span>Ozvi se nám</span>
+                        </a>
+                        <a href="kapely.html" class="btn btn-secondary glow">
+                            <span>Naše kapely</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Koncertů</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="stat-label">Kapel</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Vinylů</div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Upcoming Events Section -->
-        <section id="nejblizsi-koncerty" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nejbližší koncerty</h2>
-                    <p class="section-intro">Tady bude povídání o nejbližších koncertech co jsou v blízké době.</p>
-                </div>
-                
-                <div class="events-grid" id="upcoming-events">
-                    <div class="event-card">
-                        <div class="event-date">19. dubna</div>
-                        <h3 class="event-title">ACID ROW</h3>
-                        <p class="event-venue">Rock Café, Praha</p>
-                        
-                        <div class="event-meta">
-                            <div class="event-details">
-                                <span>Od 20:00</span>
-                                <span class="event-price">250 Kč</span>
-                            </div>
-                            
-                            <div class="social-links">
-                                <a href="#" target="_blank" rel="noopener">W</a>
-                                <a href="#" target="_blank" rel="noopener">FB</a>
-                                <a href="#" target="_blank" rel="noopener">IG</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">20. dubna</div>
-                        <h3 class="event-title">OOBBT</h3>
-                        <p class="event-venue">Cross Club, Praha</p>
-                        
-                        <div class="event-meta">
-                            <div class="event-details">
-                                <span>Od 21:00</span>
-                            </div>
-                            
-                            <div class="social-links">
-                                <a href="#" target="_blank" rel="noopener">W</a>
-                                <a href="#" target="_blank" rel="noopener">FB</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">21. dubna</div>
-                        <h3 class="event-title">KAPELA PIVÍČKO</h3>
-                        <p class="event-venue">Palác Akropolis, Praha</p>
-                        
-                        <div class="event-meta">
-                            <div class="event-details">
-                                <span>Od 19:30</span>
-                                <span class="event-price">180 Kč</span>
-                            </div>
-                            
-                            <div class="social-links">
-                                <a href="#" target="_blank" rel="noopener">FB</a>
-                                <a href="#" target="_blank" rel="noopener">IG</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="event-card">
-                        <div class="event-date">22. května</div>
-                        <h3 class="event-title">ČAU</h3>
-                        <p class="event-venue">Café V lese, Praha</p>
-                        
-                        <div class="event-meta">
-                            <div class="event-details">
-                                <span>Od 20:00</span>
-                                <span class="event-price">150 Kč</span>
-                            </div>
-                            
-                            <div class="social-links">
-                                <a href="#" target="_blank" rel="noopener">W</a>
-                                <a href="#" target="_blank" rel="noopener">IG</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="#koncerty" class="btn btn-secondary">KOUKNI NA KONCERTY</a>
-                </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+                <span>Scroll</span>
             </div>
         </section>
 
-        <!-- Bands Section -->
-        <section id="nase-kapely" class="section">
+        <!-- Preview Sections -->
+        <section class="preview-grid">
             <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">naše kapely</h2>
-                    <p class="section-intro">Tady bude povídání o našich kapelách</p>
-                </div>
-                
-                <div class="bands-grid" id="home-bands">
-                    <div class="band-card card">
-                        <div class="placeholder-image" style="height: 200px; background: linear-gradient(135deg, #ff4444, #cc0000);">🎸</div>
-                        <h3 class="band-name">ACID ROW</h3>
-                        <p>A three-piece from Prague bringing heavy guitar sounds with melodic vocals. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
+                <div class="preview-cards">
+                    <!-- Next Concert Preview -->
+                    <div class="preview-card concert-preview">
+                        <div class="preview-background">
+                            <div class="concert-visual">
+                                <div class="stage-glow"></div>
+                            </div>
+                        </div>
+                        <div class="preview-content">
+                            <h3 class="preview-title">Nejbližší koncert</h3>
+                            <div class="next-event">
+                                <div class="event-date-large">19. DUBNA</div>
+                                <div class="event-info">
+                                    <h4>ACID ROW</h4>
+                                    <p>Rock Café, Praha • 20:00</p>
+                                    <span class="price-tag">250 Kč</span>
+                                </div>
+                            </div>
+                            <a href="koncerty.html" class="preview-link">
+                                <span>Všechny koncerty</span>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
                     </div>
                     
-                    <div class="band-card card">
-                        <div class="placeholder-image" style="height: 200px; background: linear-gradient(135deg, #8a2be2, #4b0082);">🎛️</div>
-                        <h3 class="band-name">OOBBT</h3>
-                        <p>Experimental electronic duo mixing organic instruments with digital beats. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
+                    <!-- Featured Band -->
+                    <div class="preview-card band-preview">
+                        <div class="preview-background">
+                            <!-- Placeholder for band image -->
+                            <div class="band-visual" style="background: linear-gradient(135deg, #ff4444, #cc0000);">
+                                <div class="band-icon">🎸</div>
+                            </div>
+                        </div>
+                        <div class="preview-content">
+                            <h3 class="preview-title">Featured kapela</h3>
+                            <div class="band-highlight">
+                                <h4>ACID ROW</h4>
+                                <p>Three-piece z Prahy s heavy guitar sound a melodickými vokály.</p>
+                            </div>
+                            <a href="kapely.html" class="preview-link">
+                                <span>Všechny kapely</span>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
                     </div>
                     
-                    <div class="band-card card">
-                        <div class="placeholder-image" style="height: 200px; background: linear-gradient(135deg, #ff8c00, #ff4500);">🍺</div>
-                        <h3 class="band-name">KAPELA PIVÍČKO</h3>
-                        <p>Základní info, já nevím co všechno. Asi že jsou dobrý. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
-                    </div>
-                    
-                    <div class="band-card card">
-                        <div class="placeholder-image" style="height: 200px; background: linear-gradient(135deg, #20b2aa, #008b8b);">🌙</div>
-                        <h3 class="band-name">ČAU</h3>
-                        <p>Indie pop projekt s melancholickými melodiemi a poetickými texty. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="#kapely" class="btn btn-secondary">Všechny kapely</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Vinyls Section -->
-        <section id="nejnovejsi-vinyly" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nejnovější vinyly</h2>
-                    <p class="section-intro">Tady bude povídání o vinylech</p>
-                </div>
-                
-                <div class="vinyls-grid" id="home-vinyls">
-                    <div class="vinyl-card card">
-                        <div class="placeholder-image" style="height: 250px; background: linear-gradient(45deg, #ff4444, #8B0000, #2F4F4F);">
-                            <div style="position: relative;">
-                                <div style="width: 200px; height: 200px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
+                    <!-- Latest Vinyl -->
+                    <div class="preview-card vinyl-preview">
+                        <div class="preview-background">
+                            <div class="vinyl-visual">
+                                <div class="vinyl-disc-preview">
+                                    <div class="disc-outer"></div>
+                                    <div class="disc-label">POISONED MIND</div>
+                                    <div class="disc-center"></div>
                                 </div>
                             </div>
                         </div>
-                        <h3 class="vinyl-title">POISONED MIND / ACID ROW</h3>
-                        <p class="small-text">ACID ROW</p>
-                        <p>Povídání o vinylu, jak vznikl nebo já nevím co všechno. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
-                        <div class="vinyl-actions">
-                            <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - ACID ROW vinyl" class="btn btn-primary">Kup vinyl - 450 Kč</a>
+                        <div class="preview-content">
+                            <h3 class="preview-title">Nejnovější vinyl</h3>
+                            <div class="vinyl-highlight">
+                                <h4>POISONED MIND</h4>
+                                <p class="artist">ACID ROW</p>
+                                <span class="vinyl-price">450 Kč</span>
+                            </div>
+                            <a href="vinyly.html" class="preview-link">
+                                <span>Všechny vinyly</span>
+                                <div class="link-arrow">→</div>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="vinyl-card card">
-                        <div class="placeholder-image" style="height: 250px; background: linear-gradient(45deg, #8a2be2, #4b0082, #191970);">
-                            <div style="position: relative;">
-                                <div style="width: 200px; height: 200px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                </div>
+                    <!-- About Preview -->
+                    <div class="preview-card about-preview">
+                        <div class="preview-background">
+                            <div class="about-visual">
+                                <div class="text-pattern">ŽIVOT JE LAJF</div>
                             </div>
                         </div>
-                        <h3 class="vinyl-title">ELECTRONIC DREAMS</h3>
-                        <p class="small-text">OOBBT</p>
-                        <p>Povídání o vinylu, jak vznikl. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
-                        <div class="vinyl-actions">
-                            <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - OOBBT vinyl" class="btn btn-primary">Kup vinyl - 380 Kč</a>
+                        <div class="preview-content">
+                            <h3 class="preview-title">O nás</h3>
+                            <div class="about-snippet">
+                                <p>Specializujeme se na underground scénu a alternativní projekty. Věříme, že každá dobrá písnička si zaslouží být slyšena.</p>
+                            </div>
+                            <a href="o-zivote.html" class="preview-link">
+                                <span>Více o nás</span>
+                                <div class="link-arrow">→</div>
+                            </a>
                         </div>
                     </div>
-                    
-                    <div class="vinyl-card card">
-                        <div class="placeholder-image" style="height: 250px; background: linear-gradient(45deg, #ff8c00, #ff4500, #8B4513);">
-                            <div style="position: relative;">
-                                <div style="width: 200px; height: 200px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <div style="width: 30px; height: 30px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="vinyl-title">PIVNÍ SEZÓNA</h3>
-                        <p class="small-text">KAPELA PIVÍČKO</p>
-                        <p>Povídání o vinylu, jak vznikl. <a href="#" style="color: #ff4444;">Proklik na detail.</a></p>
-                        <div class="vinyl-actions">
-                            <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - KAPELA PIVÍČKO vinyl" class="btn btn-primary">Kup vinyl - 320 Kč</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="#vinyly" class="btn btn-secondary">Koukni na všechny vinyly</a>
-                    <a href="mailto:cau@zivotjelajf.com?subject=Chceš udělat vinyl?" class="btn btn-primary">Chceš udělat vinyl?</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- O ŽIVOTĚ Section -->
-        <section id="o-zivote" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">O ŽIVOTĚ</h2>
-                </div>
-                
-                <div class="content-wrapper">
-                    <div class="intro-text">
-                        <p>Život je krátký a špatná hudba ho ještě víc zkracuje. Proto jsme založili "Život je lajf" - abychom pomohli talentovaným kapelám najít svou cestu k posluchačům a posluchačům najít hudbu, která jim změní život.</p>
-                        <p>Specializujeme se na underground scénu, alternativní projekty a umělce, kteří mají co říct. Věříme, že každá dobrá písnička si zaslouží být slyšena a každý koncert by měl být nezapomenutelným zážitkem.</p>
-                        <p>Nabízíme komplexní služby - od managementu kapel přes organizaci koncertů až po produkci vinylů. Protože… no, život je lajf!</p>
-                    </div>
-                    
-                    <div class="news-section">
-                        <h3>CO NOVÝHO U ŽIVOTĚ</h3>
-                        <div class="news-grid">
-                            <article class="news-item card">
-                                <h4>Končím s kuerulantama, jdu na solovou dráhu</h4>
-                                <p class="news-meta">Autor: Jakub Novák | 15. března 2024</p>
-                                <p>Po letech hraní v různých kapelách se rozhodl mladý muzikant z Prahy vydat na solovou cestu. "Už mě nebaví kompromisy," říká o svém rozhodnutí.</p>
-                            </article>
-                            
-                            <article class="news-item card">
-                                <h4>Nový koncertní turné kapely Hlučný Medvěd</h4>
-                                <p class="news-meta">Autor: Petra Svobodová | 12. března 2024</p>
-                                <p>Oblíbená alternativní kapela ohlašuje jarní turné po českých klubech. Fanoušci se můžou těšit na nové skladby i osvědčené hity.</p>
-                            </article>
-                            
-                            <article class="news-item card">
-                                <h4>Nové album kapely Hlučný Medvěd</h4>
-                                <p class="news-meta">Autor: Martin Kratochvíl | 8. března 2024</p>
-                                <p>Po tříleté pauze vydává kapela nové studiové album. Nahrávání probíhalo v pražském studiu a na albu hostuje několik významných jmen české scény.</p>
-                            </article>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <h3>Kontakty</h3>
-                        <table class="contact-table">
-                            <tr>
-                                <td><strong>Adresa:</strong></td>
-                                <td>Praha, Česká republika</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Telefon:</strong></td>
-                                <td><a href="tel:+420727273372">+420 727 273 372</a></td>
-                            </tr>
-                        </table>
-                    </div>
-                    
-                    <div class="info-tiles">
-                        <div class="tile">Kdo je Lajf?</div>
-                        <div class="tile">necum Cau</div>
-                        <div class="tile">Zdárek Bazarek</div>
-                        <div class="tile">Haf Haf</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- O KAPELÁCH Section -->
-        <section id="kapely" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">O KAPELÁCH</h2>
-                    <p class="section-intro">Tady bude povídání o našich kapelách</p>
-                </div>
-                
-                <div class="bands-grid detailed">
-                    <div class="band-card card detailed">
-                        <div class="band-image">
-                            <!-- Placeholder for user's image -->
-                            <div class="placeholder-image band-placeholder" style="background: linear-gradient(135deg, #ff4444, #cc0000);">
-                                <div class="placeholder-content">
-                                    <span class="placeholder-icon">🎸</span>
-                                    <span class="placeholder-text">ACID ROW</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="band-info">
-                            <h3 class="band-name">ACID ROW</h3>
-                            <p>A three-piece from Prague bringing heavy guitar sounds with melodic vocals. Jejich styl kombinuje grunge s moderními prvky a vytváří unikátní sound, který si fanoušci oblíbili. <a href="#acid-row-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="band-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Booking - ACID ROW" class="btn btn-primary">BOOKUJ!</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="band-card card detailed">
-                        <div class="band-image">
-                            <div class="placeholder-image band-placeholder" style="background: linear-gradient(135deg, #8a2be2, #4b0082);">
-                                <div class="placeholder-content">
-                                    <span class="placeholder-icon">🎛️</span>
-                                    <span class="placeholder-text">OOBBT</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="band-info">
-                            <h3 class="band-name">OOBBT</h3>
-                            <p>Experimental electronic duo mixing organic instruments with digital beats. Jejich hudba překračuje hranice žánrů a vytváří atmosférické soundscapy. <a href="#oobbt-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="band-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Booking - OOBBT" class="btn btn-primary">BOOKUJ!</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="band-card card detailed">
-                        <div class="band-image">
-                            <div class="placeholder-image band-placeholder" style="background: linear-gradient(135deg, #ff8c00, #ff4500);">
-                                <div class="placeholder-content">
-                                    <span class="placeholder-icon">🍺</span>
-                                    <span class="placeholder-text">KAPELA PIVÍČKO</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="band-info">
-                            <h3 class="band-name">KAPELA PIVÍČKO</h3>
-                            <p>Základní info, já nevím co všechno. Asi že jsou dobrý. Jejich energické vystoupení a vtipné texty baví publikum po celé republice. <a href="#pivicko-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="band-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Booking - KAPELA PIVÍČKO" class="btn btn-primary">BOOKUJ!</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="band-card card detailed">
-                        <div class="band-image">
-                            <div class="placeholder-image band-placeholder" style="background: linear-gradient(135deg, #20b2aa, #008b8b);">
-                                <div class="placeholder-content">
-                                    <span class="placeholder-icon">🌙</span>
-                                    <span class="placeholder-text">ČAU</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="band-info">
-                            <h3 class="band-name">ČAU</h3>
-                            <p>Indie pop projekt s melancholickými melodiemi a poetickými texty. Jejich jemná hudba dokáže oslovit i ty nejnáročnější posluchače. <a href="#cau-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="band-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Booking - ČAU" class="btn btn-primary">BOOKUJ!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="#kapely" class="btn btn-secondary">Všechny kapely</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- O VINYLECH Section -->
-        <section id="vinyly" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">O VINYLECH</h2>
-                    <h3 style="text-transform: lowercase;">naše vinyly</h3>
-                    <p class="section-intro">Tady bude povídání o vinylech</p>
-                </div>
-                
-                <div class="vinyls-grid detailed">
-                    <div class="vinyl-card card detailed">
-                        <div class="vinyl-image">
-                            <!-- Placeholder for user's vinyl image -->
-                            <div class="placeholder-image vinyl-placeholder" style="background: linear-gradient(45deg, #ff4444, #8B0000, #2F4F4F);">
-                                <div class="vinyl-disc">
-                                    <div class="vinyl-outer-ring"></div>
-                                    <div class="vinyl-label">
-                                        <span>POISONED MIND</span>
-                                        <span>ACID ROW</span>
-                                    </div>
-                                    <div class="vinyl-center-hole"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vinyl-info">
-                            <h3 class="vinyl-title">POISONED MIND / ACID ROW</h3>
-                            <p class="vinyl-artist">ACID ROW</p>
-                            <p>Povídání o vinylu, jak vznikl nebo já nevím co všechno. Tento debutový album zachycuje surovost a energii kapely v jejich nejčistší podobě. <a href="#poisoned-mind-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="vinyl-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - ACID ROW POISONED MIND vinyl" class="btn btn-primary">Kup vinyl - 450 Kč</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="vinyl-card card detailed">
-                        <div class="vinyl-image">
-                            <div class="placeholder-image vinyl-placeholder" style="background: linear-gradient(45deg, #8a2be2, #4b0082, #191970);">
-                                <div class="vinyl-disc">
-                                    <div class="vinyl-outer-ring"></div>
-                                    <div class="vinyl-label">
-                                        <span>ELECTRONIC</span>
-                                        <span>DREAMS</span>
-                                    </div>
-                                    <div class="vinyl-center-hole"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vinyl-info">
-                            <h3 class="vinyl-title">ELECTRONIC DREAMS</h3>
-                            <p class="vinyl-artist">OOBBT</p>
-                            <p>Povídání o vinylu, jak vznikl. Experimentální album plné atmosphérických soundscapů a nekonvenčních rytmů. <a href="#electronic-dreams-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="vinyl-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - OOBBT ELECTRONIC DREAMS vinyl" class="btn btn-primary">Kup vinyl - 380 Kč</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="vinyl-card card detailed">
-                        <div class="vinyl-image">
-                            <div class="placeholder-image vinyl-placeholder" style="background: linear-gradient(45deg, #ff8c00, #ff4500, #8B4513);">
-                                <div class="vinyl-disc">
-                                    <div class="vinyl-outer-ring"></div>
-                                    <div class="vinyl-label">
-                                        <span>PIVNÍ</span>
-                                        <span>SEZÓNA</span>
-                                    </div>
-                                    <div class="vinyl-center-hole"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vinyl-info">
-                            <h3 class="vinyl-title">PIVNÍ SEZÓNA</h3>
-                            <p class="vinyl-artist">KAPELA PIVÍČKO</p>
-                            <p>Povídání o vinylu, jak vznikl. Veselé album plné humorných textů a chytlavých melodií, které rozproudí každou párty. <a href="#pivni-sezona-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="vinyl-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - KAPELA PIVÍČKO PIVNÍ SEZÓNA vinyl" class="btn btn-primary">Kup vinyl - 320 Kč</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="vinyl-card card detailed">
-                        <div class="vinyl-image">
-                            <div class="placeholder-image vinyl-placeholder" style="background: linear-gradient(45deg, #20b2aa, #008b8b, #2F4F4F);">
-                                <div class="vinyl-disc">
-                                    <div class="vinyl-outer-ring"></div>
-                                    <div class="vinyl-label">
-                                        <span>MOONLIGHT</span>
-                                        <span>SESSIONS</span>
-                                    </div>
-                                    <div class="vinyl-center-hole"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="vinyl-info">
-                            <h3 class="vinyl-title">MOONLIGHT SESSIONS</h3>
-                            <p class="vinyl-artist">ČAU</p>
-                            <p>Povídání o vinylu, jak vznikl. Intimní nahrávky zachycené během nočních studijních sessions, plné poetických textů. <a href="#moonlight-sessions-detail" style="color: #ff4444;">Proklik na detail.</a></p>
-                            <div class="vinyl-actions">
-                                <a href="mailto:cau@zivotjelajf.com?subject=Objednávka - ČAU MOONLIGHT SESSIONS vinyl" class="btn btn-primary">Kup vinyl - 360 Kč</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="#vinyly" class="btn btn-secondary">Koukni na všechny vinyly</a>
-                    <a href="mailto:cau@zivotjelajf.com?subject=Chceš udělat vinyl?" class="btn btn-primary">Chceš udělat vinyl?</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- KONCERTY Section -->
-        <section id="koncerty" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">KONCERTY</h2>
-                    <p class="section-intro">Tady bude povídání o nejbližších koncertech co jsou v blízké době.</p>
-                </div>
-                
-                <div class="concerts-table-wrapper">
-                    <table class="concerts-table">
-                        <thead>
-                            <tr>
-                                <th>Datum</th>
-                                <th>Jméno kapely</th>
-                                <th>Kde ten koncert je</th>
-                                <th>Od kolika</th>
-                                <th>Lístky</th>
-                                <th>Cena</th>
-                                <th>Odkazy</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="event-date-chip">19. dubna</span></td>
-                                <td><strong>ACID ROW</strong></td>
-                                <td>Rock Café, Praha</td>
-                                <td>20:00</td>
-                                <td><a href="https://goout.net" target="_blank">GoOut</a></td>
-                                <td><span class="price">250 Kč</span></td>
-                                <td class="social-links">
-                                    <a href="#" target="_blank">W</a>
-                                    <a href="#" target="_blank">FB</a>
-                                    <a href="#" target="_blank">IG</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="event-date-chip">20. dubna</span></td>
-                                <td><strong>OOBBT</strong></td>
-                                <td>Cross Club, Praha</td>
-                                <td>21:00</td>
-                                <td><a href="https://goout.net" target="_blank">GoOut</a></td>
-                                <td>-</td>
-                                <td class="social-links">
-                                    <a href="#" target="_blank">W</a>
-                                    <a href="#" target="_blank">FB</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="event-date-chip">21. dubna</span></td>
-                                <td><strong>KAPELA PIVÍČKO</strong></td>
-                                <td>Palác Akropolis, Praha</td>
-                                <td>19:30</td>
-                                <td><a href="https://goout.net" target="_blank">GoOut</a></td>
-                                <td><span class="price">180 Kč</span></td>
-                                <td class="social-links">
-                                    <a href="#" target="_blank">FB</a>
-                                    <a href="#" target="_blank">IG</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="event-date-chip">22. května</span></td>
-                                <td><strong>ČAU</strong></td>
-                                <td>Café V lese, Praha</td>
-                                <td>20:00</td>
-                                <td><a href="https://goout.net" target="_blank">GoOut</a></td>
-                                <td><span class="price">150 Kč</span></td>
-                                <td class="social-links">
-                                    <a href="#" target="_blank">W</a>
-                                    <a href="#" target="_blank">IG</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="event-date-chip">22. května</span></td>
-                                <td><strong>TORNATANKA</strong></td>
-                                <td>MeetFactory, Praha</td>
-                                <td>21:30</td>
-                                <td><a href="https://goout.net" target="_blank">GoOut</a></td>
-                                <td><span class="price">320 Kč</span></td>
-                                <td class="social-links">
-                                    <a href="#" target="_blank">W</a>
-                                    <a href="#" target="_blank">FB</a>
-                                    <a href="#" target="_blank">IG</a>
-                                </td>
-                            </tr>
-                            <tr class="booking-row">
-                                <td colspan="7" class="booking-cell">
-                                    <div class="booking-notice">
-                                        <strong>FREE SLOTS !!! ZAČNI BOOKOVAT!</strong>
-                                        <a href="mailto:cau@zivotjelajf.com?subject=Booking - Free Slot" class="btn btn-primary">BOOKUJ!</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </section>
@@ -681,16 +271,16 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Život je lajf. All rights reserved. | 🎸 Demo na GitHub Pages</p>
+                <p>&copy; 2024 Život je lajf. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Music Player Demo -->
-    <div class="music-player-bar active" id="musicPlayer" style="background: linear-gradient(135deg, #1a2332 0%, #0a0f1c 100%); border-top: 2px solid #ff4444;">
+    <!-- Music Player -->
+    <div class="music-player-bar" id="musicPlayer">
         <div class="music-player-content">
             <div class="player-info">
-                <div class="player-artwork" style="background: linear-gradient(45deg, #ff4444, #8B0000);"></div>
+                <div class="player-artwork"></div>
                 <div class="player-track-info">
                     <div class="player-track-title">Underground Anthem</div>
                     <div class="player-track-artist">Život je lajf</div>
@@ -704,9 +294,9 @@
             </div>
 
             <div class="player-progress">
-                <span class="player-time" id="currentTime">1:23</span>
+                <span class="player-time" id="currentTime">0:00</span>
                 <div class="progress-bar" id="progressBar">
-                    <div class="progress-fill" id="progressFill" style="width: 45%;"></div>
+                    <div class="progress-fill" id="progressFill"></div>
                 </div>
                 <span class="player-time" id="totalTime">3:45</span>
             </div>
@@ -714,7 +304,7 @@
             <div class="player-volume">
                 <button class="player-btn" id="volumeBtn">🔊</button>
                 <div class="volume-slider" id="volumeSlider">
-                    <div class="volume-fill" id="volumeFill" style="width: 70%;"></div>
+                    <div class="volume-fill" id="volumeFill"></div>
                 </div>
             </div>
 

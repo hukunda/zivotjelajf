@@ -1,116 +1,464 @@
-// Static version for GitHub Pages
+// Modern Život je lajf Website JavaScript
+
+// ==========================================
+// INITIALIZATION
+// ==========================================
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
 
-// Initialize Application
 function initializeApp() {
+    // Initialize all components
     initializeNavigation();
-    initializeForms();
+    initializeHero();
+    initializeAnimations();
     initializeMusicPlayer();
+    initializeForms();
+    initializeScrollEffects();
+    
+    // Hide loading screen
     hideLoadingScreen();
     
     // Console easter egg
-    console.log('%cŽivot je lajf!', 'color: #ff4444; font-size: 24px; font-weight: bold;');
-    console.log('%cTato je GitHub Pages demo verze! 🎸', 'color: #b8c5d1; font-size: 14px;');
-    console.log('%cKompletní verze: https://github.com/hukunda/zivotjelajf', 'color: #ff4444; font-size: 14px;');
+    console.log('%c🎸 Život je lajf!', 'color: #ff3366; font-size: 24px; font-weight: bold;');
+    console.log('%cModern Underground Music Management', 'color: #ffaa00; font-size: 14px;');
+    console.log('%c🔥 Powered by passion for great music', 'color: #00ffaa; font-size: 12px;');
 }
 
-// Hide Loading Screen
+// ==========================================
+// LOADING SCREEN
+// ==========================================
+
 function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
         setTimeout(() => {
+            document.body.classList.remove('loading');
             loadingScreen.classList.add('hidden');
             setTimeout(() => {
                 loadingScreen.remove();
             }, 500);
-        }, 1500);
+        }, 2000);
     }
 }
 
-// Initialize Navigation
+// ==========================================
+// NAVIGATION
+// ==========================================
+
 function initializeNavigation() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const mobileToggle = document.getElementById('mobile-menu-toggle');
-    const mainNav = document.getElementById('main-nav');
+    const nav = document.getElementById('mainNav');
+    const navBurger = document.getElementById('navBurger');
+    const navMenu = document.getElementById('navMenu');
+    const navItems = document.querySelectorAll('.nav-item');
     
-    // Handle navigation clicks
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = this.getAttribute('href').substring(1);
-            
-            // Update active nav
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Simple scroll to section for demo
-            const targetSection = document.getElementById(target);
-            if (targetSection) {
-                targetSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    
-    // Mobile menu toggle
-    if (mobileToggle && mainNav) {
-        mobileToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            this.classList.toggle('active');
+    // Burger menu toggle
+    if (navBurger && navMenu) {
+        navBurger.addEventListener('click', function() {
+            navBurger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
     }
     
-    // Scroll spy for navigation
-    window.addEventListener('scroll', function() {
-        const sections = ['home', 'o-zivote', 'kapely', 'vinyly', 'koncerty'];
-        const scrollPos = window.scrollY + 100;
-        
-        sections.forEach(sectionId => {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                
-                if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        const linkHref = link.getAttribute('href');
-                        if (linkHref === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
+    // Close mobile menu when clicking nav item
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navBurger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     });
     
-    // Header hide/show on scroll
-    let lastScrollTop = 0;
-    const header = document.getElementById('header');
-    
+    // Navigation scroll effect
+    let lastScroll = 0;
     window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const currentScroll = window.pageYOffset;
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.classList.add('hidden');
+        if (currentScroll > 100) {
+            nav.classList.add('scrolled');
         } else {
-            // Scrolling up
-            header.classList.remove('hidden');
+            nav.classList.remove('scrolled');
         }
         
-        lastScrollTop = scrollTop;
+        // Hide/show nav on scroll (optional)
+        if (currentScroll > lastScroll && currentScroll > 200) {
+            nav.style.transform = 'translateY(-100%)';
+        } else {
+            nav.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Active nav item highlighting (for single page)
+    highlightActiveNavItem();
+}
+
+function highlightActiveNavItem() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        const href = item.getAttribute('href');
+        if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
+            item.classList.add('active');
+        }
     });
 }
 
-// Initialize Forms
+// ==========================================
+// HERO SECTION
+// ==========================================
+
+function initializeHero() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+    
+    // Parallax effect
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        const heroBackground = hero.querySelector('.hero-background');
+        if (heroBackground) {
+            heroBackground.style.transform = `translateY(${rate}px)`;
+        }
+    });
+    
+    // Statistics counter animation
+    animateStatistics();
+    
+    // Hero title typing effect (optional)
+    animateHeroTitle();
+}
+
+function animateStatistics() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.dataset.count);
+                animateCounter(entry.target, target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(stat => observer.observe(stat));
+}
+
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 60;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+    }, 50);
+}
+
+function animateHeroTitle() {
+    const heroTitle = document.querySelector('.hero-title');
+    if (!heroTitle) return;
+    
+    // Add typewriter effect
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    heroTitle.style.opacity = '1';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+    
+    setTimeout(typeWriter, 1000);
+}
+
+// ==========================================
+// ANIMATIONS & MICROINTERACTIONS
+// ==========================================
+
+function initializeAnimations() {
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll('.preview-card, .stat-item');
+    animatedElements.forEach(el => {
+        observer.observe(el);
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(40px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    // Add animate-in styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Card hover effects
+    initializeCardEffects();
+    
+    // Button ripple effects
+    initializeButtonEffects();
+}
+
+function initializeCardEffects() {
+    const cards = document.querySelectorAll('.preview-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-12px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        // Add tilt effect
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            this.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+        });
+    });
+}
+
+function initializeButtonEffects() {
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+    
+    // Add ripple animation
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+}
+
+// ==========================================
+// MUSIC PLAYER
+// ==========================================
+
+function initializeMusicPlayer() {
+    const musicPlayer = document.getElementById('musicPlayer');
+    const playPauseBtn = document.getElementById('playerPlayPause');
+    const prevBtn = document.getElementById('playerPrev');
+    const nextBtn = document.getElementById('playerNext');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeFill = document.getElementById('volumeFill');
+    const currentTimeEl = document.getElementById('currentTime');
+    const totalTimeEl = document.getElementById('totalTime');
+    const closeBtn = document.getElementById('playerClose');
+    
+    if (!musicPlayer) return;
+    
+    let isPlaying = false;
+    let currentTime = 0;
+    let duration = 225; // 3:45 in seconds
+    let volume = 0.7;
+    let playInterval;
+    
+    // Show player after delay
+    setTimeout(() => {
+        musicPlayer.classList.add('active');
+        document.body.style.paddingBottom = '120px';
+    }, 3000);
+    
+    // Play/Pause functionality
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            this.textContent = isPlaying ? '⏸' : '▶';
+            
+            if (isPlaying) {
+                startPlayback();
+            } else {
+                stopPlayback();
+            }
+        });
+    }
+    
+    // Previous/Next buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            currentTime = Math.max(0, currentTime - 10);
+            updateProgress();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            currentTime = Math.min(duration, currentTime + 10);
+            updateProgress();
+        });
+    }
+    
+    // Progress bar interaction
+    if (progressBar) {
+        progressBar.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            currentTime = percent * duration;
+            updateProgress();
+        });
+    }
+    
+    // Volume control
+    if (volumeSlider) {
+        volumeSlider.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            volume = (e.clientX - rect.left) / rect.width;
+            updateVolume();
+        });
+    }
+    
+    // Close player
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            musicPlayer.classList.remove('active');
+            document.body.style.paddingBottom = '0';
+            stopPlayback();
+        });
+    }
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.code === 'Space' && !e.target.matches('input, textarea')) {
+            e.preventDefault();
+            playPauseBtn.click();
+        }
+    });
+    
+    function startPlayback() {
+        playInterval = setInterval(() => {
+            currentTime += 1;
+            if (currentTime >= duration) {
+                currentTime = 0;
+                isPlaying = false;
+                playPauseBtn.textContent = '▶';
+                clearInterval(playInterval);
+            }
+            updateProgress();
+        }, 1000);
+    }
+    
+    function stopPlayback() {
+        if (playInterval) {
+            clearInterval(playInterval);
+        }
+    }
+    
+    function updateProgress() {
+        const percent = (currentTime / duration) * 100;
+        if (progressFill) {
+            progressFill.style.width = `${percent}%`;
+        }
+        if (currentTimeEl) {
+            currentTimeEl.textContent = formatTime(currentTime);
+        }
+    }
+    
+    function updateVolume() {
+        const percent = volume * 100;
+        if (volumeFill) {
+            volumeFill.style.width = `${percent}%`;
+        }
+    }
+    
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    // Initialize display
+    updateProgress();
+    updateVolume();
+}
+
+// ==========================================
+// FORMS
+// ==========================================
+
 function initializeForms() {
-    // Email subscription form
     const subscribeForm = document.getElementById('email-subscribe-form');
+    
     if (subscribeForm) {
         subscribeForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -119,197 +467,51 @@ function initializeForms() {
             const messageDiv = document.getElementById('subscribe-message');
             const email = emailInput.value.trim();
             
-            if (!email) {
-                showMessage(messageDiv, 'Zadejte email adresu', 'error');
+            if (!email || !isValidEmail(email)) {
+                showMessage(messageDiv, 'Zadejte platnou email adresu', 'error');
                 return;
             }
             
-            // Simulate subscription for demo
-            showMessage(messageDiv, 'Demo verze - v produkční verzi by byl email uložen!', 'success');
+            // Simulate form submission
+            showMessage(messageDiv, 'Děkujeme za registraci!', 'success');
             emailInput.value = '';
             
-            // In real version, this would send to server
-            console.log('Demo: Email subscription:', email);
+            // In production, send to server
+            console.log('Email subscription:', email);
         });
     }
 }
 
-// Initialize Music Player
-function initializeMusicPlayer() {
-    const musicPlayer = document.getElementById('musicPlayer');
-    const playPauseBtn = document.getElementById('playerPlayPause');
-    const playerClose = document.getElementById('playerClose');
-    
-    let isPlaying = false;
-    
-    if (!musicPlayer) return;
-    
-    // Play/Pause functionality (demo simulation)
-    if (playPauseBtn) {
-        playPauseBtn.addEventListener('click', function() {
-            if (isPlaying) {
-                this.textContent = '▶';
-                isPlaying = false;
-                console.log('Demo: Music paused');
-            } else {
-                this.textContent = '⏸';
-                isPlaying = true;
-                console.log('Demo: Music playing');
-                simulateProgress();
-            }
-        });
-    }
-    
-    // Close player
-    if (playerClose) {
-        playerClose.addEventListener('click', function() {
-            musicPlayer.classList.remove('active');
-            document.body.style.paddingBottom = '0';
-        });
-    }
-    
-    // Simulate progress
-    function simulateProgress() {
-        if (!isPlaying) return;
-        
-        const progressFill = document.getElementById('progressFill');
-        const currentTimeEl = document.getElementById('currentTime');
-        
-        if (progressFill && currentTimeEl) {
-            let currentWidth = parseFloat(progressFill.style.width) || 45;
-            
-            const interval = setInterval(() => {
-                if (!isPlaying) {
-                    clearInterval(interval);
-                    return;
-                }
-                
-                currentWidth += 0.5;
-                if (currentWidth >= 100) {
-                    currentWidth = 0;
-                }
-                
-                progressFill.style.width = currentWidth + '%';
-                
-                // Update time display
-                const totalSeconds = 225; // 3:45
-                const currentSeconds = Math.floor((currentWidth / 100) * totalSeconds);
-                currentTimeEl.textContent = formatTime(currentSeconds);
-            }, 1000);
-        }
-    }
-    
-    // Progress bar click
-    const progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-        progressBar.addEventListener('click', function(e) {
-            const rect = this.getBoundingClientRect();
-            const percent = (e.clientX - rect.left) / rect.width * 100;
-            const progressFill = document.getElementById('progressFill');
-            if (progressFill) {
-                progressFill.style.width = percent + '%';
-            }
-        });
-    }
-    
-    // Volume control
-    const volumeSlider = document.getElementById('volumeSlider');
-    if (volumeSlider) {
-        volumeSlider.addEventListener('click', function(e) {
-            const rect = this.getBoundingClientRect();
-            const percent = (e.clientX - rect.left) / rect.width * 100;
-            const volumeFill = document.getElementById('volumeFill');
-            if (volumeFill) {
-                volumeFill.style.width = percent + '%';
-            }
-        });
-    }
-    
-    // Keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-        if (e.code === 'Space' && !e.target.matches('input, textarea')) {
-            e.preventDefault();
-            if (playPauseBtn) {
-                playPauseBtn.click();
-            }
-        } else if (e.code === 'Escape') {
-            if (musicPlayer && musicPlayer.classList.contains('active')) {
-                playerClose.click();
-            }
-        }
-    });
-    
-    // Auto-show player (demo)
-    setTimeout(() => {
-        if (musicPlayer) {
-            musicPlayer.classList.add('active');
-            document.body.style.paddingBottom = '120px';
-        }
-    }, 3000);
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Show Message
 function showMessage(element, message, type) {
     if (!element) return;
     
     element.textContent = message;
     element.className = `subscribe-message ${type}`;
+    element.style.opacity = '1';
+    element.style.transform = 'translateY(0)';
     
     setTimeout(() => {
-        element.textContent = '';
-        element.className = 'subscribe-message';
-    }, 5000);
-}
-
-// Format Time
-function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-}
-
-// Demo functionality for links
-document.addEventListener('click', function(e) {
-    const target = e.target;
-    
-    // Handle demo links
-    if (target.matches('a[href="#"]')) {
-        e.preventDefault();
-        console.log('Demo: Link clicked -', target.textContent);
-        
-        // Show demo message
-        const message = document.createElement('div');
-        message.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #ff4444, #ff6666);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            z-index: 10000;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-        `;
-        message.textContent = 'Demo verze - kompletní funkcionalita je k dispozici v plné verzi!';
-        document.body.appendChild(message);
-        
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(-10px)';
         setTimeout(() => {
-            if (message.parentNode) {
-                message.parentNode.removeChild(message);
-            }
-        }, 3000);
-    }
-    
-    // Handle mailto links
-    if (target.matches('a[href^="mailto:"]')) {
-        console.log('Demo: Email link clicked -', target.href);
-    }
-});
+            element.textContent = '';
+            element.className = 'subscribe-message';
+        }, 300);
+    }, 4000);
+}
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        if (this.getAttribute('href') !== '#') {
+// ==========================================
+// SCROLL EFFECTS
+// ==========================================
+
+function initializeScrollEffects() {
+    // Smooth scrolling for hash links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -318,37 +520,105 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     block: 'start'
                 });
             }
+        });
+    });
+    
+    // Scroll indicator in hero
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', function() {
+            const nextSection = document.querySelector('.preview-grid');
+            if (nextSection) {
+                nextSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+        
+        // Hide scroll indicator when scrolled
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            scrollIndicator.style.opacity = scrolled > 100 ? '0' : '1';
+        });
+    }
+}
+
+// ==========================================
+// UTILITY FUNCTIONS
+// ==========================================
+
+// Debounce function for performance
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Throttle function for scroll events
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
         }
-    });
+    };
+}
+
+// Check if element is in viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// ==========================================
+// ERROR HANDLING
+// ==========================================
+
+window.addEventListener('error', function(e) {
+    console.error('JavaScript Error:', e.error);
 });
 
-// Add some demo interactivity to cards
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-});
+// ==========================================
+// PERFORMANCE MONITORING
+// ==========================================
 
-// Add loading animations
+// Log performance metrics
 window.addEventListener('load', function() {
-    const cards = document.querySelectorAll('.card');
-    
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
+    setTimeout(() => {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+    }, 0);
 });
+
+// ==========================================
+// EXPORT FOR TESTING
+// ==========================================
+
+// For testing purposes
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        initializeApp,
+        formatTime: (seconds) => {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        },
+        isValidEmail
+    };
+}
