@@ -66,7 +66,7 @@ function initializeNavigation() {
     
     // Scroll spy for navigation
     window.addEventListener('scroll', function() {
-        const sections = ['home', 'nejblizsi-koncerty', 'nase-kapely', 'nejnovejsi-vinyly'];
+        const sections = ['home', 'o-zivote', 'kapely', 'vinyly', 'koncerty'];
         const scrollPos = window.scrollY + 100;
         
         sections.forEach(sectionId => {
@@ -78,7 +78,8 @@ function initializeNavigation() {
                 if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
+                        const linkHref = link.getAttribute('href');
+                        if (linkHref === `#${sectionId}`) {
                             link.classList.add('active');
                         }
                     });
