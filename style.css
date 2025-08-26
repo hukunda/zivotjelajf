@@ -1,0 +1,1301 @@
+/*
+Theme Name: Život je lajf
+Description: Custom WordPress theme for Život je lajf music management
+Version: 1.0
+Author: Custom Theme
+*/
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0f1c;
+    color: #ffffff;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+p {
+    font-size: 1.125rem;
+    color: #b8c5d1;
+    margin-bottom: 1rem;
+}
+
+.small-text {
+    font-size: 0.875rem;
+    color: #8a9ba8;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #ff4444;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #ff6666;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ff4444;
+    border: 2px solid #ff4444;
+}
+
+.btn-secondary:hover {
+    background-color: #ff4444;
+    color: #ffffff;
+}
+
+/* Cards and Surfaces */
+.card {
+    background-color: #1a2332;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+/* Header */
+.site-header {
+    background-color: #0a0f1c;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #1a2332;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    color: #ff4444;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #ff4444;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 100%);
+    padding: 4rem 0;
+    text-align: center;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="music" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23ff4444" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23music)"/></svg>');
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sections */
+.section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.section-intro {
+    color: #b8c5d1;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* Grid Layouts */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Concert/Event Cards */
+.event-card {
+    background-color: #1a2332;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #ff4444;
+}
+
+.event-date {
+    background-color: #ff4444;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.event-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-venue {
+    color: #b8c5d1;
+    margin-bottom: 0.5rem;
+}
+
+.event-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.event-price {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-links a {
+    width: 30px;
+    height: 30px;
+    background-color: #2a3441;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #ff4444;
+}
+
+/* Band Cards */
+.band-card {
+    text-align: center;
+}
+
+.band-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.band-name {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Vinyl Cards */
+.vinyl-card {
+    text-align: center;
+}
+
+.vinyl-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.vinyl-title {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #0a0f1c;
+    padding: 3rem 0 1rem;
+    border-top: 1px solid #1a2332;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-contact {
+    color: #b8c5d1;
+}
+
+.footer-form {
+    background-color: #1a2332;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.footer-form h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a3441;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.form-group input::placeholder {
+    color: #8a9ba8;
+}
+
+.footer-social {
+    text-align: center;
+}
+
+.footer-social .social-links {
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-social .social-links a {
+    width: 40px;
+    height: 40px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #1a2332;
+    color: #8a9ba8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Table Styles for Events */
+.events-table {
+    width: 100%;
+    background-color: #1a2332;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.events-table thead {
+    background-color: #2a3441;
+}
+
+.events-table th,
+.events-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #2a3441;
+}
+
+.events-table th {
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.events-table td {
+    color: #b8c5d1;
+}
+
+.events-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Form Styles */
+.form-field {
+    margin-bottom: 1.5rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a3441;
+    border: 1px solid #3a4451;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: #ff4444;
+}
+
+/* Shopping Cart Styles */
+.cart-item {
+    background-color: #1a2332;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.cart-item-price {
+    color: #ff4444;
+    font-weight: bold;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #2a3441;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background-color: #ff4444;
+}
+
+/* WooCommerce Styles */
+.woocommerce .woocommerce-breadcrumb {
+    margin-bottom: 2rem;
+    color: #b8c5d1;
+}
+
+.woocommerce .woocommerce-breadcrumb a {
+    color: #ff4444;
+    text-decoration: none;
+}
+
+.woocommerce .woocommerce-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.woocommerce div.product {
+    background-color: #1a2332;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.woocommerce div.product .product_title {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.woocommerce div.product .price {
+    color: #ff4444;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.woocommerce div.product .woocommerce-product-details__short-description {
+    color: #b8c5d1;
+    margin-bottom: 2rem;
+}
+
+.woocommerce div.product form.cart {
+    margin-bottom: 2rem;
+}
+
+.woocommerce div.product form.cart .quantity {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.woocommerce div.product form.cart .quantity input {
+    width: 60px;
+    padding: 8px;
+    background-color: #2a3441;
+    border: 1px solid #3a4451;
+    border-radius: 4px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    background-color: #ff4444;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+    background-color: #ff6666;
+    transform: translateY(-2px);
+}
+
+.woocommerce .woocommerce-message {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.woocommerce .woocommerce-message a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.woocommerce .cart-collaterals {
+    background-color: #1a2332;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.woocommerce .cart-collaterals h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.woocommerce table.shop_table {
+    background-color: #1a2332;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td {
+    padding: 1rem;
+    border-bottom: 1px solid #2a3441;
+    color: #b8c5d1;
+}
+
+.woocommerce table.shop_table th {
+    background-color: #2a3441;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.woocommerce table.shop_table tr:last-child td {
+    border-bottom: none;
+}
+
+.woocommerce .product_meta {
+    background-color: #2a3441;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.woocommerce .product_meta span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #b8c5d1;
+}
+
+.woocommerce .woocommerce-tabs {
+    margin-top: 3rem;
+}
+
+.woocommerce .woocommerce-tabs ul.tabs {
+    background-color: #2a3441;
+    border-radius: 8px 8px 0 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.woocommerce .woocommerce-tabs ul.tabs li {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.woocommerce .woocommerce-tabs ul.tabs li a {
+    display: block;
+    padding: 1rem;
+    color: #b8c5d1;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.woocommerce .woocommerce-tabs ul.tabs li.active a,
+.woocommerce .woocommerce-tabs ul.tabs li a:hover {
+    color: #ffffff;
+    border-bottom-color: #ff4444;
+}
+
+.woocommerce .woocommerce-tabs .panel {
+    background-color: #1a2332;
+    padding: 2rem;
+    border-radius: 0 0 8px 8px;
+    color: #b8c5d1;
+}
+
+/* Cart Page */
+.woocommerce-cart .wc-proceed-to-checkout {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout .checkout-button {
+    background-color: #ff4444;
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout .checkout-button:hover {
+    background-color: #ff6666;
+    transform: translateY(-2px);
+}
+
+/* Checkout Page */
+.woocommerce-checkout .col2-set {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.woocommerce-checkout .col-1,
+.woocommerce-checkout .col-2 {
+    background-color: #1a2332;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.woocommerce-checkout h3 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-checkout .form-row {
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-checkout .form-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.woocommerce-checkout .form-row input,
+.woocommerce-checkout .form-row select,
+.woocommerce-checkout .form-row textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a3441;
+    border: 1px solid #3a4451;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.woocommerce-checkout .form-row input:focus,
+.woocommerce-checkout .form-row select:focus,
+.woocommerce-checkout .form-row textarea:focus {
+    outline: none;
+    border-color: #ff4444;
+}
+
+/* Responsive WooCommerce */
+@media (max-width: 768px) {
+    .woocommerce-checkout .col2-set {
+        grid-template-columns: 1fr;
+    }
+    
+    .woocommerce div.product {
+        padding: 1rem;
+    }
+    
+    .woocommerce table.shop_table th,
+    .woocommerce table.shop_table td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.hidden {
+    display: none;
+}
+
+/* Sticky Music Player Bar */
+.music-player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #1a2332 0%, #0a0f1c 100%);
+    border-top: 2px solid #ff4444;
+    padding: 15px 20px;
+    z-index: 9999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.music-player-bar.active {
+    transform: translateY(0);
+}
+
+.music-player-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 0;
+}
+
+.player-artwork {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #2a3441;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.player-track-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.player-track-title {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-track-artist {
+    color: #b8c5d1;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.player-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.player-btn:hover {
+    background-color: #ff4444;
+    transform: scale(1.1);
+}
+
+.player-btn.play-pause {
+    background-color: #ff4444;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+}
+
+.player-btn.play-pause:hover {
+    background-color: #ff6666;
+}
+
+.player-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 300px;
+}
+
+.player-time {
+    color: #b8c5d1;
+    font-size: 0.75rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background-color: #2a3441;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #ff4444;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.player-volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.volume-slider {
+    width: 80px;
+    height: 4px;
+    background-color: #2a3441;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-fill {
+    height: 100%;
+    background-color: #ff4444;
+    border-radius: 2px;
+    width: 70%;
+}
+
+.player-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4444;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+    z-index: 10000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-toggle:hover {
+    background-color: #ff6666;
+    transform: scale(1.1);
+}
+
+.player-toggle.hidden {
+    display: none;
+}
+
+/* Music Player Embed Container */
+.music-player-embed {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.music-player-embed iframe {
+    width: 100%;
+    height: 120px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Close button for player */
+.player-close {
+    background: none;
+    border: none;
+    color: #b8c5d1;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.player-close:hover {
+    color: #ff4444;
+}
+
+/* Responsive Music Player */
+@media (max-width: 768px) {
+    .music-player-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+    
+    .player-info {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .player-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .player-progress {
+        max-width: 100%;
+        order: -1;
+    }
+    
+    .player-volume {
+        display: none;
+    }
+    
+    .player-toggle {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-player-bar {
+        padding: 10px 15px;
+    }
+    
+    .player-track-title {
+        font-size: 0.9rem;
+    }
+    
+    .player-track-artist {
+        font-size: 0.8rem;
+    }
+    
+    .player-controls {
+        gap: 10px;
+    }
+    
+    .player-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .player-btn.play-pause {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Admin Music Player Settings */
+.music-player-admin {
+    background-color: #1a2332;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.music-player-admin h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.music-player-admin .form-table th {
+    color: #ffffff;
+}
+
+.music-player-admin .form-table td {
+    color: #b8c5d1;
+}
+
+.embed-preview {
+    background-color: #2a3441;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #3a4451;
+}
+
+.embed-preview h4 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.embed-preview iframe {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+/* Enhanced Image Styling for User's Artwork */
+.band-card img,
+.vinyl-card img,
+.event-card img {
+    filter: contrast(1.05) saturate(1.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover;
+}
+
+.band-card:hover img {
+    transform: scale(1.03) rotate(0.5deg);
+    filter: contrast(1.15) saturate(1.2);
+}
+
+.vinyl-card:hover img {
+    transform: scale(1.05);
+    filter: contrast(1.2) saturate(1.25);
+}
+
+/* Placeholder Image Enhancements */
+.placeholder-artwork {
+    background: linear-gradient(135deg, var(--color-1, #ff4444), var(--color-2, #8a2be2));
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder-artwork::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1), 
+        transparent 30%, 
+        transparent 70%, 
+        rgba(255,255,255,0.1));
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.placeholder-artwork > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Vinyl Record Effect for Placeholder Vinyls */
+.vinyl-placeholder {
+    position: relative;
+    background: conic-gradient(from 0deg, #1a1a1a, #333, #1a1a1a, #333);
+    border-radius: 50%;
+    margin: 20px auto;
+}
+
+.vinyl-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+}
+
+.vinyl-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+}
+
+/* Concert Stage Lighting Effect */
+.concert-placeholder {
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(255,68,68,0.8) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(138,43,226,0.8) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(255,140,0,0.6) 0%, transparent 50%),
+        linear-gradient(135deg, #1a1a2e, #16213e);
+    position: relative;
+    overflow: hidden;
+}
+
+.concert-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255,255,255,0.1), 
+        transparent);
+    animation: spotlight 3s infinite;
+}
+
+@keyframes spotlight {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Specific Placeholder Styles */
+.acid-row-style {
+    --color-1: #ff4444;
+    --color-2: #8B0000;
+    background: linear-gradient(135deg, #ff4444, #8B0000, #2F4F4F);
+}
+
+.oobbt-style {
+    --color-1: #8a2be2;
+    --color-2: #4b0082;
+    background: linear-gradient(135deg, #8a2be2, #4b0082, #191970);
+}
+
+.pivicko-style {
+    --color-1: #ff8c00;
+    --color-2: #ff4500;
+    background: linear-gradient(135deg, #ff8c00, #ff4500, #8B4513);
+}
+
+.cau-style {
+    --color-1: #20b2aa;
+    --color-2: #008b8b;
+    background: linear-gradient(135deg, #20b2aa, #008b8b, #2F4F4F);
+}

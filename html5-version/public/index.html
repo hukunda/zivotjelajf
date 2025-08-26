@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ŽIVOT JE LAJF - Underground Music Management</title>
+    <meta name="description" content="U nás u 'Život je lajf' věříme, že život je příliš krátký na špatnou hudbu. Hudební management, produkce vinylů, organizace koncertů.">
+    <meta name="keywords" content="underground music, vinyl, concerts, Prague, czech music, Život je lajf">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ŽIVOT JE LAJF - Underground Music Management">
+    <meta property="og:description" content="Život je příliš krátký na špatnou hudbu. Hudební management a produkce.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Život je lajf",
+        "description": "Underground music management and vinyl production",
+        "url": "https://zivotjelajf.com",
+        "telephone": "+420 727 273 372",
+        "email": "cau@zivotjelajf.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Prague",
+            "addressCountry": "CZ"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">🎸</div>
+            <div class="loading-text">ŽIVOT JE LAJF</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#home" class="site-title">ŽIVOT JE LAJF</a>
+                </div>
+                
+                <nav class="main-nav" id="main-nav">
+                    <ul>
+                        <li><a href="#o-zivote" class="nav-link">O ŽIVOTĚ</a></li>
+                        <li><a href="#kapely" class="nav-link">O KAPELÁCH</a></li>
+                        <li><a href="#vinyly" class="nav-link">O VINYLECH</a></li>
+                        <li><a href="#koncerty" class="nav-link">KONCERTY</a></li>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="site-main">
+        <!-- Home Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        U NÁS U 'ŽIVOT JE LAJF' VĚŘÍME, ŽE ŽIVOT JE PŘÍLIŠ KRÁTKÝ NA ŠPATNOU HUDBU.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Tak neváhejte a kontaktujte nás ještě dnes. S námi bude vaše akce nezapomenutelná, protože… no, život je lajf!
+                    </p>
+                    <div class="hero-cta">
+                        <a href="mailto:cau@zivotjelajf.com" class="btn btn-primary">Ozvi se nám</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section id="nejblizsi-koncerty" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nejbližší koncerty</h2>
+                    <p class="section-intro">Tady bude povídání o nejbližších koncertech co jsou v blízké době.</p>
+                </div>
+                
+                <div class="events-grid" id="upcoming-events">
+                    <!-- Events will be loaded here -->
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#koncerty" class="btn btn-secondary">KOUKNI NA KONCERTY</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bands Section -->
+        <section id="nase-kapely" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">naše kapely</h2>
+                    <p class="section-intro">Tady bude povídání o našich kapelách</p>
+                </div>
+                
+                <div class="bands-grid" id="home-bands">
+                    <!-- Bands will be loaded here -->
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#kapely" class="btn btn-secondary">Všechny kapely</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vinyls Section -->
+        <section id="nejnovejsi-vinyly" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nejnovější vinyly</h2>
+                    <p class="section-intro">Tady bude povídání o vinylech</p>
+                </div>
+                
+                <div class="vinyls-grid" id="home-vinyls">
+                    <!-- Vinyls will be loaded here -->
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#vinyly" class="btn btn-secondary">Koukni na všechny vinyly</a>
+                    <a href="mailto:cau@zivotjelajf.com?subject=Chceš udělat vinyl?" class="btn btn-primary">Chceš udělat vinyl?</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- O Životě Section -->
+        <section id="o-zivote" class="section" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">O ŽIVOTĚ</h1>
+                </div>
+                
+                <div class="card">
+                    <div class="content">
+                        <p>Vítejte v světě "Život je lajf" - tam, kde se underground hudba setkává s profesionálním managementem a vášní pro autentické umění.</p>
+                        
+                        <p>Jsme víc než jen hudební label nebo management. Jsme komunita umělců, producentů a milovníků hudby, kteří věří, že život je skutečně příliš krátký na špatnou hudbu. Naše mise je jednoduchá: podporovat talentované underground kapely a přinášet jejich hudbu k fanouškům, kteří ji dokážou ocenit.</p>
+                        
+                        <p>Zaměřujeme se na objevování a rozvoj umělců, kteří mají co říct a nejsou ochotni dělat kompromisy se svým uměleckým viděním. Od hardcore punku přes experimentální elektroniku až po alternativní rock - pokud má hudba duši a autenticitu, má u nás své místo.</p>
+                        
+                        <p>Naše služby zahrnují kompletní umělecký management, organizaci koncertů, produkci vinylových desek a propagaci. Pomáháme kapelám nejen s hudbou, ale i s vybudováním jejich značky a dosažením jejich cílů.</p>
+                        
+                        <p>Máte kapelu a hledáte profesionální zastoupení? Plánujete hudební akci a potřebujete zkušené organizátory? Nebo prostě milujete dobrou hudbu a chcete být součástí našeho světa? Neváhejte nás kontaktovat. S námi bude vaše hudební cesta nezapomenutelná, protože… no, život je lajf!</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>CO NOVÝHO U ŽIVOTĚ</h2>
+                    <div class="news-grid" id="news-section">
+                        <!-- News will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>Kontakty</h2>
+                    <div class="card">
+                        <table class="contacts-table">
+                            <tr>
+                                <th>Adresa</th>
+                                <td>Praha, Česká republika</td>
+                            </tr>
+                            <tr>
+                                <th>Telefon</th>
+                                <td id="site-phone">+420 727 273 372</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td><a href="mailto:cau@zivotjelajf.com" id="site-email">cau@zivotjelajf.com</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="team-grid">
+                        <div class="card text-center">
+                            <h3>Kdo je Lajf?</h3>
+                            <p class="small-text">Zakladatel a srdce celého projektu</p>
+                        </div>
+                        <div class="card text-center">
+                            <h3>necum Cau</h3>
+                            <p class="small-text">Kreativní ředitel a hudební nadšenec</p>
+                        </div>
+                        <div class="card text-center">
+                            <h3>Zdárek Bazarek</h3>
+                            <p class="small-text">Manažer kapel a organizátor akcí</p>
+                        </div>
+                        <div class="card text-center">
+                            <h3>Haf Haf</h3>
+                            <p class="small-text">Produkční a technický ředitel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bands Section -->
+        <section id="kapely" class="section" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">O KAPELÁCH</h1>
+                    <p class="section-intro">Tady bude povídání o našich kapelách</p>
+                </div>
+                
+                <div class="bands-grid" id="all-bands">
+                    <!-- All bands will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Vinyls Section -->
+        <section id="vinyly" class="section" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">O VINYLECH</h1>
+                    <h2 class="section-title">naše vinyly</h2>
+                    <p class="section-intro">Tady bude povídání o vinylech</p>
+                </div>
+                
+                <div class="vinyls-grid" id="all-vinyls">
+                    <!-- All vinyls will be loaded here -->
+                </div>
+                
+                <div class="section text-center">
+                    <h2>Chcete si nechat vyrobit vinyl?</h2>
+                    <p>Pomůžeme vám s produkcí vašeho vlastního vinylu od A do Z.</p>
+                    <a href="mailto:cau@zivotjelajf.com?subject=Chci udělat vinyl" class="btn btn-primary">Chceš udělat vinyl?</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="koncerty" class="section" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">KONCERTY</h1>
+                    <p class="section-intro">Tady bude povídání o nejbližších koncertech co jsou v blízké době.</p>
+                </div>
+                
+                <div class="events-table-container">
+                    <table class="events-table" id="all-events-table">
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Kapela</th>
+                                <th>Místo</th>
+                                <th>Čas</th>
+                                <th>Cena</th>
+                                <th>Lístky</th>
+                                <th>Odkazy</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-events-tbody">
+                            <!-- Events will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Band Detail Modal -->
+        <div id="band-modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div id="band-modal-content">
+                    <!-- Band details will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Vinyl Detail Modal -->
+        <div id="vinyl-modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div id="vinyl-modal-content">
+                    <!-- Vinyl details will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Modal -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div id="order-modal-content">
+                    <h2>Objednat vinyl</h2>
+                    <form id="order-form">
+                        <input type="hidden" id="order-vinyl-id">
+                        <div class="form-group">
+                            <label for="customer-name">Jméno a příjmení *</label>
+                            <input type="text" id="customer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-email">Email *</label>
+                            <input type="email" id="customer-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone">Telefon</label>
+                            <input type="tel" id="customer-phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-address">Adresa pro doručení *</label>
+                            <textarea id="customer-address" required rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="order-quantity">Počet kusů</label>
+                            <input type="number" id="order-quantity" value="1" min="1">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="closeModal('order-modal')">Zrušit</button>
+                            <button type="submit" class="btn btn-primary">Objednat</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Call me maybe?</h3>
+                    <p>Telefon: <a href="tel:+420727273372" id="footer-phone">+420 727 273 372</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Email</h3>
+                    <p><a href="mailto:cau@zivotjelajf.com" id="footer-email">cau@zivotjelajf.com</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Čau s náma?</h3>
+                    <form id="email-subscribe-form" class="subscribe-form">
+                        <input type="email" id="subscribe-email" placeholder="Tvůj mail" required>
+                        <button type="submit" class="btn btn-primary">Napiš</button>
+                    </form>
+                    <div id="subscribe-message" class="subscribe-message"></div>
+                </div>
+                
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#" id="social-facebook" target="_blank" rel="noopener">FB</a>
+                        <a href="#" id="social-instagram" target="_blank" rel="noopener">IG</a>
+                        <a href="#" id="social-twitter" target="_blank" rel="noopener">TW</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Život je lajf. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Music Player (will be loaded if enabled) -->
+    <div id="music-player-container"></div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
