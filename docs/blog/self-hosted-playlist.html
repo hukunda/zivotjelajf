@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Hosted Playlist - Život je lajf</title>
+    <meta name="description" content="Jak si vytvořit vlastní audio streaming server a spravovat hudební kolekci bez závislosti na velkých platformách.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-link">
+                    <object data="../assets/logo.svg" type="image/svg+xml" class="logo-svg">ŽIVOT JE LAJF</object>
+                </a>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../o-zivote.html" class="nav-item" data-text="O ŽIVOTĚ">
+                    <span class="nav-text">O ŽIVOTĚ</span>
+                </a>
+                <a href="../kapely.html" class="nav-item" data-text="O KAPELÁCH">
+                    <span class="nav-text">O KAPELÁCH</span>
+                </a>
+                <a href="../vinyly.html" class="nav-item" data-text="O VINYLECH">
+                    <span class="nav-text">O VINYLECH</span>
+                </a>
+            </div>
+            
+            <div class="nav-burger" id="navBurger">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="site-main">
+        <!-- Blog Post Hero -->
+        <section class="blog-post-hero">
+            <div class="container">
+                <div class="hero-content-centered">
+                    <div class="post-meta">
+                        <span class="post-date">16. února 2024</span>
+                        <span class="post-author">Steven Sanders</span>
+                    </div>
+                    <h1 class="post-title">Self-Hosted Playlist</h1>
+                    <p class="post-excerpt">Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Fusce commodo aliquam arcu. In ac felis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Post Content -->
+        <section class="blog-post-content">
+            <div class="container">
+                <div class="post-layout">
+                    <article class="post-main">
+                        <div class="post-body">
+                            <p>Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Fusce commodo aliquam arcu. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.</p>
+                            
+                            <p>V dnešní době dominance streamovacích služeb se mnozí hudební nadšenci rozhodují pro vlastní řešení. Self-hosted audio server vám dává plnou kontrolu nad vaší hudební kolekcí.</p>
+                            
+                            <h2>Proč vlastní server?</h2>
+                            
+                            <p>Phasellus magna. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula.</p>
+                            
+                            <ul>
+                                <li>Úplná kontrola nad hudební kolekcí</li>
+                                <li>Žádné měsíční poplatky</li>
+                                <li>Podpora všech audio formátů</li>
+                                <li>Přístup odkudkoliv na světě</li>
+                                <li>Integrace s domácím sound systémem</li>
+                            </ul>
+                            
+                            <h2>Technické řešení</h2>
+                            
+                            <div class="code-block">
+                                <pre><code># Základní setup serveru
+docker run -d \
+  --name=airsonic \
+  -p 4040:4040 \
+  -v /path/to/music:/music \
+  -v /path/to/data:/data \
+  airsonic/airsonic</code></pre>
+                            </div>
+                            
+                            <p>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc. Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.</p>
+                            
+                            <blockquote>
+                                "Vlastní music server je jako mít vlastní rádio - hraje přesně to, co chcete, kdy chcete."
+                            </blockquote>
+                            
+                            <h2>Doporučené aplikace</h2>
+                            
+                            <div class="app-grid">
+                                <div class="app-card">
+                                    <h4>Airsonic</h4>
+                                    <p>Open-source web-based média server. Perfektní pro začátečníky.</p>
+                                </div>
+                                <div class="app-card">
+                                    <h4>Plex</h4>
+                                    <p>Profesionální řešení s výborným uživatelským rozhraním.</p>
+                                </div>
+                                <div class="app-card">
+                                    <h4>Jellyfin</h4>
+                                    <p>Kompletně free alternativa k Plexu bez omezení.</p>
+                                </div>
+                            </div>
+                            
+                            <p>Sed urna. Nullam rutrum. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                        </div>
+                        
+                        <div class="post-tags">
+                            <span class="tag">Audio</span>
+                            <span class="tag">Self-hosted</span>
+                            <span class="tag">Streaming</span>
+                            <span class="tag">Technologie</span>
+                        </div>
+                        
+                        <div class="post-navigation">
+                            <a href="nove-album-kapely-hlucny-medved.html" class="nav-link prev">
+                                <span class="nav-label">Předchozí článek</span>
+                                <span class="nav-title">Nové album kapely Hlučný Medvěd</span>
+                            </a>
+                            <a href="koncim-s-kuerulantama.html" class="nav-link next">
+                                <span class="nav-label">Další článek</span>
+                                <span class="nav-title">Končím s kuerulantama</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <aside class="post-sidebar">
+                        <div class="sidebar-widget">
+                            <h3>Související články</h3>
+                            <div class="related-posts">
+                                <a href="nove-album-kapely-hlucny-medved.html" class="related-post">
+                                    <div class="related-image">
+                                        <div class="placeholder-image" style="background: linear-gradient(45deg, #20b2aa, #008b8b, #2F4F4F);"></div>
+                                    </div>
+                                    <div class="related-content">
+                                        <h4>Nové album kapely Hlučný Medvěd</h4>
+                                        <span class="related-date">14. února 2024</span>
+                                    </div>
+                                </a>
+                                
+                                <a href="koncim-s-kuerulantama.html" class="related-post">
+                                    <div class="related-image">
+                                        <div class="placeholder-image" style="background: linear-gradient(45deg, #ff3366, #8B0000, #2F4F4F);"></div>
+                                    </div>
+                                    <div class="related-content">
+                                        <h4>Končím s kuerulantama</h4>
+                                        <span class="related-date">16. února 2024</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-widget">
+                            <h3>Technické zdroje</h3>
+                            <div class="tech-links">
+                                <a href="#" class="tech-link">Docker dokumentace</a>
+                                <a href="#" class="tech-link">Airsonic GitHub</a>
+                                <a href="#" class="tech-link">Jellyfin download</a>
+                                <a href="#" class="tech-link">Setup tutoriály</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Call me maybe?</h3>
+                    <a href="tel:+420727273372" class="footer-phone">+420 727 273 372</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Email</h3>
+                    <a href="mailto:cau@zivotjelajf.com" class="footer-email">cau@zivotjelajf.com</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Čau s náma?</h3>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input type="email" placeholder="Tvůj mail" required>
+                        <button type="submit">Napiš</button>
+                    </form>
+                </div>
+                
+                <div class="footer-section">
+                    <div class="social-links">
+                        <a href="#" target="_blank" rel="noopener">FB</a>
+                        <a href="#" target="_blank" rel="noopener">IG</a>
+                        <a href="#" target="_blank" rel="noopener">YT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+</body>
+</html>
