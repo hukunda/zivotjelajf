@@ -119,7 +119,8 @@
                 </div>
                 
                 <div class="concert-calendar">
-                    <div class="concert-row">
+                    <!-- Initially visible events (first 2) -->
+                    <div class="concert-row concert-visible">
                         <div class="concert-date-info">
                             <div class="concert-date-large">APR 19, 2024</div>
                             <div class="concert-day">FRI</div>
@@ -133,7 +134,7 @@
                         </div>
                     </div>
                     
-                    <div class="concert-row">
+                    <div class="concert-row concert-visible">
                         <div class="concert-date-info">
                             <div class="concert-date-large">APR 20, 2024</div>
                             <div class="concert-day">SAT</div>
@@ -147,7 +148,8 @@
                         </div>
                     </div>
                     
-                    <div class="concert-row">
+                    <!-- Hidden events that appear on scroll -->
+                    <div class="concert-row concert-hidden">
                         <div class="concert-date-info">
                             <div class="concert-date-large">APR 21, 2024</div>
                             <div class="concert-day">SUN</div>
@@ -161,9 +163,37 @@
                         </div>
                     </div>
                     
-                    <div class="concert-row">
+                    <div class="concert-row concert-hidden">
                         <div class="concert-date-info">
-                            <div class="concert-date-large">MAY 22, 2024</div>
+                            <div class="concert-date-large">APR 28, 2024</div>
+                            <div class="concert-day">SUN</div>
+                        </div>
+                        <div class="concert-details">
+                            <div class="concert-location">BRNO, CZECH REPUBLIC – SONO CENTRUM</div>
+                            <div class="concert-time">20:00</div>
+                        </div>
+                        <div class="concert-action">
+                            <a href="kapela/acid-row.html" class="concert-buy-btn">ACID ROW</a>
+                        </div>
+                    </div>
+                    
+                    <div class="concert-row concert-hidden">
+                        <div class="concert-date-info">
+                            <div class="concert-date-large">MAY 5, 2024</div>
+                            <div class="concert-day">SUN</div>
+                        </div>
+                        <div class="concert-details">
+                            <div class="concert-location">OSTRAVA, CZECH REPUBLIC – STODOLA</div>
+                            <div class="concert-time">19:00</div>
+                        </div>
+                        <div class="concert-action">
+                            <a href="kapela/oobbt.html" class="concert-buy-btn">OOBBT</a>
+                        </div>
+                    </div>
+                    
+                    <div class="concert-row concert-hidden">
+                        <div class="concert-date-info">
+                            <div class="concert-date-large">MAY 15, 2024</div>
                             <div class="concert-day">WED</div>
                         </div>
                         <div class="concert-details">
@@ -175,7 +205,7 @@
                         </div>
                     </div>
                     
-                    <div class="concert-row">
+                    <div class="concert-row concert-hidden">
                         <div class="concert-date-info">
                             <div class="concert-date-large">MAY 22, 2024</div>
                             <div class="concert-day">WED</div>
@@ -188,6 +218,26 @@
                             <a href="kapela/tornatanka.html" class="concert-buy-btn">TORNATANKA</a>
                         </div>
                     </div>
+                    
+                    <div class="concert-row concert-hidden">
+                        <div class="concert-date-info">
+                            <div class="concert-date-large">JUN 1, 2024</div>
+                            <div class="concert-day">SAT</div>
+                        </div>
+                        <div class="concert-details">
+                            <div class="concert-location">PLZEŇ, CZECH REPUBLIC – BUENA VISTA CLUB</div>
+                            <div class="concert-time">21:00</div>
+                        </div>
+                        <div class="concert-action">
+                            <a href="kapela/cau.html" class="concert-buy-btn">ČAU</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator">
+                    <span class="scroll-text">Scroll to see more events</span>
+                    <div class="scroll-arrow">↓</div>
                 </div>
                 
                 <div class="section-cta">

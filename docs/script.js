@@ -16,6 +16,7 @@ function initializeApp() {
     initializeMusicPlayer();
     initializeForms();
     initializeScrollEffects();
+    initializeProgressiveCalendar();
     
     // Hide loading screen
     hideLoadingScreen();
@@ -307,6 +308,81 @@ function initializeButtonEffects() {
         }
     `;
     document.head.appendChild(rippleStyle);
+}
+
+// ==========================================
+// PROGRESSIVE CALENDAR
+// ==========================================
+
+function initializeProgressiveCalendar() {
+    const concertSection = document.querySelector('.home-concerts');
+    const hiddenEvents = document.querySelectorAll('.concert-hidden');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    
+    if (!concertSection || hiddenEvents.length === 0) {
+        console.log('Progressive calendar: No elements found');
+        return;
+    }
+    
+    console.log(`Progressive calendar: Found ${hiddenEvents.length} hidden events`);
+    
+    let eventsRevealed = false;
+    
+    const revealEvents = () => {
+        if (eventsRevealed) return;
+        
+        console.log('Revealing concert events...');
+        
+        hiddenEvents.forEach((event, index) => {
+            setTimeout(() => {
+                event.classList.remove('concert-hidden');
+                event.classList.add('concert-revealed');
+                console.log(`Revealed event ${index + 1}`);
+            }, index * 150); // Stagger the animations
+        });
+        
+        if (scrollIndicator) {
+            setTimeout(() => {
+                scrollIndicator.classList.add('hidden');
+            }, hiddenEvents.length * 150 + 500);
+        }
+        
+        eventsRevealed = true;
+    };
+    
+    // Intersection Observer for scroll-triggered reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const rect = entry.boundingClientRect;
+                const windowHeight = window.innerHeight;
+                
+                // Trigger when section is 70% visible
+                if (rect.top < windowHeight * 0.7) {
+                    revealEvents();
+                }
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -20% 0px'
+    });
+    
+    observer.observe(concertSection);
+    
+    // Also reveal on manual scroll past a certain point
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const scrollPosition = window.scrollY;
+            const triggerPoint = window.innerHeight * 0.6;
+            
+            if (scrollPosition > triggerPoint) {
+                revealEvents();
+            }
+        }, 100);
+    });
 }
 
 // ==========================================
